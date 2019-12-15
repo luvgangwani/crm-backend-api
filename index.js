@@ -1,8 +1,14 @@
 import express from 'express';
 import config from './config/config';
 import routes from './src/routes/crmRoutes';
+import bodyParser from 'body-parser';
 
 const app = express();
+
+// bodyParser setup
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 routes(app);
 
